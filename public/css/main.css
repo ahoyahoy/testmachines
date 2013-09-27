@@ -1,1 +1,227 @@
-body,html{font-family:'Lucida Grande',Tahoma,Verdana,Arial,sans-serif}.backgrid-container{position:relative;display:block;width:100%;height:465px;padding:0;overflow:auto;border:0}.backgrid{width:100%;max-width:100%;background-color:transparent;border:1px solid #DDD;border-collapse:collapse;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.backgrid th,.backgrid td{height:20px;max-width:250px;padding:4px 5px;overflow:hidden;line-height:20px;text-align:left;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;border:1px solid #DDD}.backgrid th{font-weight:bold;cursor:pointer}.backgrid th a{white-space:nowrap}.backgrid thead th{vertical-align:bottom;background-color:#f9f9f9}.backgrid.backgrid-striped tbody tr:nth-child(odd) td,.backgrid.backgrid-striped tbody tr:nth-child(odd) th{background-color:#f9f9f9}.backgrid tbody tr.empty{font-style:italic;color:gray}.backgrid tbody tr.empty td{text-align:center}.backgrid td.editor,.backgrid tbody tr:nth-child(odd) td.editor{background-color:rgba(82,168,236,0.1);outline:1px solid rgba(82,168,236,0.8);outline-offset:-1px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-transition-duration:200ms;-moz-transition-duration:200ms;-o-transition-duration:200ms;transition-duration:200ms;-webkit-transition-property:width,outline,background-color;-moz-transition-property:width,outline,background-color;-o-transition-property:width,outline,background-color;transition-property:width,outline,background-color;-webkit-transition-timing-function:ease-in-out;-moz-transition-timing-function:ease-in-out;-o-transition-timing-function:ease-in-out;transition-timing-function:ease-in-out}.backgrid td.editor input[type=text]{display:block;width:100%;height:100%;padding:0;margin:0;background-color:transparent;border:0;outline:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none}.backgrid td.error,.backgrid tbody tr:nth-child(odd) td.error{background-color:rgba(255,210,77,0.1);outline:1px solid #ffd24d}.backgrid td.editor :focus,.backgrid th.editor :focus{outline:0}.backgrid .sort-caret{display:inline-block;width:0;height:0;margin-left:.3em;border:0;content:""}.backgrid .ascending .sort-caret{vertical-align:baseline;border-top:0;border-right:4px solid transparent;border-bottom:4px solid #000;border-left:4px solid transparent}.backgrid .descending .sort-caret{vertical-align:super;border-top:4px solid #000;border-right:4px solid transparent;border-bottom:0;border-left:4px solid transparent}.backgrid .string-cell,.backgrid .uri-cell,.backgrid .email-cell,.backgrid .string-cell.editor input[type=text],.backgrid .uri-cell.editor input[type=text],.backgrid .email-cell.editor input[type=text]{text-align:left}.backgrid .date-cell,.backgrid .time-cell,.backgrid .datetime-cell,.backgrid .number-cell,.backgrid .integer-cell,.backgrid .date-cell.editor input[type=text],.backgrid .time-cell.editor input[type=text],.backgrid .datetime-cell.editor input[type=text],.backgrid .number-cell.editor input[type=text],.backgrid .integer-cell.editor input[type=text]{text-align:right}.backgrid .boolean-cell,.backgrid .boolean-cell.editor input[type=checkbox]{text-align:center}.backgrid .select-cell{text-align:center}.backgrid .select-cell.editor{padding:0}.backgrid .select-cell.editor select{display:block;width:100%;height:28px;padding:4px 5px;margin:0;line-height:28px;vertical-align:middle;background-color:white;border:0;outline:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.backgrid .select-cell.editor :focus{border:0;outline:0}.backgrid .select-cell.editor select::-moz-focus-inner,.backgrid .select-cell.editor optgroup::-moz-focus-inner,.backgrid .select-cell.editor option::-moz-focus-inner,.backgrid .select-cell.editor select::-o-focus-inner,.backgrid .select-cell.editor optgroup::-o-focus-inner,.backgrid .select-cell.editor option::-o-focus-inner{border:0}
+* {
+  font-family: 'Titillium Web', sans-serif;
+  -webkit-transition: all 180ms cubic-bezier(0.57, 0, 1, 0.27);
+  -moz-transition: all 180ms cubic-bezier(0.57, 0, 1, 0.27);
+  -ms-transition: all 180ms cubic-bezier(0.57, 0, 1, 0.27);
+  -o-transition: all 180ms cubic-bezier(0.57, 0, 1, 0.27);
+  transition: all 180ms cubic-bezier(0.57, 0, 1, 0.27);
+  /* custom */
+
+  -webkit-transition-timing-function: cubic-bezier(0.57, 0, 1, 0.27);
+  -moz-transition-timing-function: cubic-bezier(0.57, 0, 1, 0.27);
+  -ms-transition-timing-function: cubic-bezier(0.57, 0, 1, 0.27);
+  -o-transition-timing-function: cubic-bezier(0.57, 0, 1, 0.27);
+  transition-timing-function: cubic-bezier(0.57, 0, 1, 0.27);
+  /* custom */
+
+}
+body {
+  background: #344a5d;
+}
+.table {
+  margin: 0 auto;
+}
+.table th {
+  background: #2a3c4f;
+  color: #bdc2c7;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 5px 25px;
+  font-weight: normal;
+  text-align: left;
+}
+.table th.change {
+  text-align: right;
+}
+.table th.change a {
+  color: #19bd9b;
+  font-weight: 300;
+  font-size: 19px;
+  padding-top: 5px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+.table th.change a i {
+  position: relative;
+  top: -1px;
+  font-size: 17px;
+}
+.table th.change a:hover {
+  color: #f3c60c;
+}
+.table th.user span {
+  color: #3297da;
+  font-weight: 300;
+  font-size: 19px;
+  padding-top: 5px;
+  display: inline-block;
+}
+.table td {
+  padding: 10px 25px;
+}
+.table td.name {
+  min-width: 150px;
+  background: #19bd9b;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.table td.name i {
+  font-size: 24px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  display: none;
+  color: rgba(0, 0, 0, 0.2);
+  text-shadow: none;
+}
+.table td.name:hover i {
+  display: block;
+}
+.table td.name:hover i:hover {
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.table td.web {
+  min-width: 150px;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #9956b4;
+  color: white;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.table td.web span {
+  display: block;
+  font-size: 11px;
+  text-transform: none;
+  text-shadow: none;
+}
+.table td.web i {
+  font-size: 24px;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  display: none;
+  color: rgba(0, 0, 0, 0.3);
+  text-shadow: none;
+}
+.table td.web:hover {
+  background: #8d43ac;
+}
+.table td.web:hover i {
+  display: block;
+}
+.table td.tickets {
+  min-width: 300px;
+  background: #eceff2;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+}
+.table td.tickets .ticket {
+  display: inline-block;
+  background: #f3c60c;
+  padding: 4px 75px 4px 35px;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+  text-decoration: none;
+  color: black;
+  float: left;
+  position: relative;
+  margin-right: 5px;
+}
+.table td.tickets .ticket span {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-shadow: none;
+}
+.table td.tickets .ticket:hover {
+  background: #f39c0f;
+}
+.table td.tickets .ticket u {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 36px;
+  padding: 6px 13px;
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 26px;
+}
+.table td.tickets .ticket u:hover {
+  background: #e84a3a;
+  color: white;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.table td.tickets .add {
+  display: inline-block;
+  line-height: 36px;
+  padding: 6px 13px;
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  float: left;
+  font-size: 26px;
+}
+.table td.tickets .add:hover {
+  background: #3297da;
+  color: white;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.table td.addserver {
+  color: #3297da;
+  cursor: pointer;
+}
+.table td.addserver i {
+  font-size: 24px;
+}
+.table td.addserver span {
+  text-transform: uppercase;
+  font-size: 12px;
+  position: relative;
+  top: -3px;
+  left: 10px;
+  display: none;
+  color: white;
+}
+.table td.addserver:hover {
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  background: #3297da;
+}
+.table td.addserver:hover span {
+  display: inline-block;
+}
+.table td.foot {
+  color: #9956b4;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 5px 0;
+  font-weight: normal;
+  text-align: right;
+}
+.table td.foot .baked,
+.table td.foot .fork {
+  display: block;
+}
+.table td.foot .baked i,
+.table td.foot .fork i {
+  position: relative;
+  left: 1px;
+}
+.table td.foot a {
+  color: #3297da;
+  text-decoration: none;
+}
+.table td.foot a:hover {
+  color: #f3c60c;
+}
+.table td.foot a:hover i {
+  color: white;
+}
