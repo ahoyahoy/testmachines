@@ -1,16 +1,10 @@
+var express = require('express'),
+	app = express(),
+	http = require('http'),
+	path = require('path');
+app.mg = require('mongoose');
+app.db = app.mg.connect('mongodb://server:%w$=Sceet-2C@paulo.mongohq.com:10072/testmachines');
 
-/**
- * Module dependencies.
- */
-
-var express = require('express');
-var routes = require('./routes/app');
-var http = require('http');
-var path = require('path');
-
-var app = express();
-
-// all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -21,13 +15,21 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
 if ('development' == app.get('env')) {
 	app.use(express.errorHandler());
 }
 
-app.get('/', routes.app);
+require('./models/user')(app.mg);
+
+require('./routes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });
+
+
+Array.prototype.remove = function(from, to) {
+	var rest = this.slice((to || from) + 1 || this.length);
+	this.length = from < 0 ? this.length + from : from;
+	return this.push.apply(this, rest);
+};

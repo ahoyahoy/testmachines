@@ -7,23 +7,23 @@ html
 		meta(http-equiv='X-UA-Compatible', content='chrome=1')
 
 		link(href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic&subset=latin,latin-ext',rel='stylesheet', type='text/css')
-		
+
 		link(href='/css/main.css',rel='stylesheet', type='text/css')
 		link(href='/css/typicons.css',rel='stylesheet', type='text/css')
 
-		block head
-
 	body
-		div.container
+		block content
 
-	block content
+		block templates
 
+		script(src='/js/libs/jquery.js')
+		script(src='/js/libs/underscore.js')
+		script(src='/js/libs/backbone.js')
 
+		script(src='/js/helpers.js')
 
-	script(src='/js/libs/jquery.js')
-	script(src='/js/libs/underscore.js')
-	script(src='/js/libs/backbone.js')
+		script(src='/js/views/table.js')
 
-	block scripts
+		block scripts
 
-	script(src='/js/app.js')
+		script(src='/js/app.js')

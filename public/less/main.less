@@ -21,6 +21,10 @@ body {
 }
 
 
+.invisible {
+	opacity: 0;
+}
+
 
 .table {
 	margin: 0 auto;
@@ -51,8 +55,6 @@ body {
 					position: relative;
 					top: -1px;
 					font-size: 17px;
-
-					
 				}
 
 				&:hover {
@@ -69,6 +71,14 @@ body {
 			display: inline-block;
 		}
 
+		&.w150 {
+			min-width: 150px;
+		}
+
+		&.w300 {
+			min-width: 300px;
+		}
+
 
 	}
 
@@ -76,7 +86,6 @@ body {
 		padding: 10px 25px;
 
 		&.name {
-			min-width: 150px;
 			background: #19bd9b;
 			box-shadow: inset -1px -1px 0 rgba(0,0,0,.13);
 			color: white;
@@ -107,44 +116,49 @@ body {
 		}
 
 		&.web {
-			min-width: 150px;
-			font-size: 16px;
-			text-transform: uppercase;
-			background: #9956b4;
-			color: white;
-			cursor: pointer;
-			box-shadow: inset -1px -1px 0 rgba(0,0,0,.13);
-			text-shadow: 1px 1px 0 rgba(0,0,0,.1);
-			position: relative;
+			padding: 0;
 
-			span {
+			a {
+				padding: 14px 25px;
+				font-size: 16px;
+				text-transform: uppercase;
+				background: #9956b4;
+				color: white;
+				cursor: pointer;
+				box-shadow: inset -1px -1px 0 rgba(0,0,0,.13);
+				text-shadow: 1px 1px 0 rgba(0,0,0,.1);
+				position: relative;
 				display: block;
-				font-size: 11px;
-				text-transform: none;
-				text-shadow: none;
-			}
+				text-decoration: none;
 
-			i {
-				font-size: 24px;
-				position: absolute;
-				top: 20px;
-				right: 5px;
-				display: none;
-				color: rgba(0,0,0,.3);
-				text-shadow: none;
-			}
-
-			&:hover {
-				background: #8d43ac;
+				span {
+					display: block;
+					font-size: 11px;
+					text-transform: none;
+					text-shadow: none;
+				}
 
 				i {
-					display: block;
+					font-size: 24px;
+					position: absolute;
+					top: 20px;
+					right: 5px;
+					display: none;
+					color: rgba(0,0,0,.3);
+					text-shadow: none;
+				}
+
+				&:hover {
+					background: #8d43ac;
+
+					i {
+						display: block;
+					}
 				}
 			}
 		}
 
 		&.tickets {
-			min-width: 300px;
 			background: #eceff2;
 			box-shadow: inset -1px -1px 0 rgba(0,0,0,.13);
 

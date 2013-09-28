@@ -1,120 +1,68 @@
 extends layout
 
+block title
+	title #{ user.name.toUpperCase().split('.').join(' ') } - Testovací stroje
+
 block content
 
 	table.table(cellspacing=0)
-		tr
-			th.user(colspan=2)
-				span tomas hodbod
-			th.change
-				a(href="/")
-					i.typcn.typcn-th-menu
+		thead
+			tr
+				th.user(colspan=2)
+					span= user.name.split('.').join(' ')
+				th.change
+					a(href="/")
+						i.typcn.typcn-th-menu
 			
-		tr
-			th Server
-			th Web
-			th Tickety
+			tr.header
+				th.w150 Server
+				th.w150 Web
+				th.w300 Tickety
 
-		tr
-			td.name(rowspan=2) hodbod1.dev
-				i.typcn.typcn-edit
-			td.web adminweb
-				span hodbod1.dev:3334
-				i.typcn.typcn-chevron-right
+		tfoot
+			tr
+				td.addserver
+					i.typcn.typcn-plus
+					span Přidat server
+				td.foot(colspan=2)
+					span.baked Baked in
+						a(href="https://www.facebook.com/sayahoyahoy")
+							i.typcn.typcn-anchor 
+							| AHOYAHOY
+					span.fork Fork me on 
+						a(href="https://github.com/ahoyahoy/testmachines") Github
+		
 
+
+block templates
+	script#web-tmpl(type="text/template")
+		tr
+			<% if(i === 0) { %>
+			td.name(rowspan="<%= lngth %>") <%= name %>
+				i.typcn.typcn-edit.edit
+			<% } %>
+			td.web
+				a(href="http://<%= name %>:<%= desc.url %>") <%= desc.label %>
+					span <%= name %>:<%= desc.url %>
+					i.typcn.typcn-chevron-right
 			td.tickets 
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
+				span.add
 					i.typcn.typcn-plus
 
-		tr
-			td.web userweb
-				span hodbod1.dev:3333
-			td.tickets
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
-					i.typcn.typcn-plus
-		tr
-			td.name(rowspan=2) hodbod1.dev
-			td.web adminweb
-				span hodbod1.dev:3334
-			td.tickets 
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
-					i.typcn.typcn-plus
+	script#ticket-tmpl(type="text/template")
+		a.ticket(href="#") #<%= number %>
+			span <%= date %>
+			u.remove
+				i.typcn.typcn-times
 
-		tr
-			td.web userweb
-				span hodbod1.dev:3333
-			td.tickets
-				a.add(href="")
-					i.typcn.typcn-plus
-		tr
-			td.name(rowspan=2) hodbod1.dev
-			td.web adminweb
-				span hodbod1.dev:3334
-			td.tickets 
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
-					i.typcn.typcn-plus
+block scripts
+	script
+		var user= !{JSON.stringify(user)};
 
-		tr
-			td.web userweb
-				span hodbod1.dev:3333
-			td.tickets
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
-					i.typcn.typcn-plus
-		tr
-			td.name(rowspan=2) hodbod1.dev
-			td.web adminweb
-				span hodbod1.dev:3334
-			td.tickets 
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
-					i.typcn.typcn-plus
+		var table = new app.TableView(user.data.servers);
 
-		tr
-			td.web userweb
-				span hodbod1.dev:3333
-			td.tickets
-				a.ticket(href="") #1234
-					span 3 dny
-					u
-						i.typcn.typcn-times
-				a.add(href="")
-					i.typcn.typcn-plus
+		
 
-		tr
-			td.addserver
-				i.typcn.typcn-plus
-				span Přidat server
-			td.foot(colspan=2)
-				span.baked Baked in
-					a(href="https://www.facebook.com/sayahoyahoy")
-						i.typcn.typcn-anchor 
-						| AHOYAHOY
-				span.fork Fork me on 
-					a(href="https://github.com/ahoyahoy/testmachines") Github
+		
+
+
