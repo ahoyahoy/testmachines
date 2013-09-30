@@ -21,6 +21,7 @@ if ('development' == app.get('env')) {
 
 require('./models/user')(app.mg);
 
+require('./api')(app);
 require('./routes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){

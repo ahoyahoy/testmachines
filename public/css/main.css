@@ -21,6 +21,11 @@ body {
 .invisible {
   opacity: 0;
 }
+.bbox {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .table {
   margin: 0 auto;
 }
@@ -34,16 +39,19 @@ body {
   text-align: left;
 }
 .table th.change {
-  text-align: right;
+  position: relative;
 }
 .table th.change a {
   color: #19bd9b;
   font-weight: 300;
   font-size: 19px;
-  padding-top: 5px;
+  padding: 0 7px 1px 7px;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
 .table th.change a i {
   position: relative;
@@ -51,7 +59,8 @@ body {
   font-size: 17px;
 }
 .table th.change a:hover {
-  color: #f3c60c;
+  background: #19bd9b;
+  color: white;
 }
 .table th.user span {
   color: #3297da;
@@ -198,8 +207,8 @@ body {
   font-size: 12px;
   position: relative;
   top: -3px;
-  left: 10px;
-  display: none;
+  left: 25px;
+  opacity: 0;
   color: white;
 }
 .table td.addserver:hover {
@@ -208,7 +217,7 @@ body {
   background: #3297da;
 }
 .table td.addserver:hover span {
-  display: inline-block;
+  opacity: 1;
 }
 .table td.foot {
   color: #9956b4;
@@ -236,4 +245,63 @@ body {
 }
 .table td.foot a:hover i {
   color: white;
+}
+h1 {
+  color: #3297da;
+  font-size: 49px;
+  font-weight: 200;
+  margin: 0 auto;
+  width: 800px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.nameinput {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #19bd9b;
+  margin: 0 auto;
+  width: 800px;
+  padding: 4px 9px;
+  margin-bottom: 35px;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
+}
+.nameinput input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 24px;
+  padding: 5px 25px;
+  font-weight: 200;
+  color: black;
+  background: #eceff2;
+  border: none;
+}
+.users {
+  margin: 0 auto;
+  width: 800px;
+}
+.users a {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #19bd9b;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 10px 25px;
+  font-weight: 200;
+  text-decoration: none;
+  width: 33.333%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.users a:hover {
+  background: #19bd9b;
+  color: white;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.13);
 }

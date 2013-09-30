@@ -45,7 +45,7 @@ block templates
 				a(href="http://<%= name %>:<%= desc.url %>") <%= desc.label %>
 					span <%= name %>:<%= desc.url %>
 					i.typcn.typcn-chevron-right
-			td.tickets 
+			td.tickets(si='<%= si %>', wi='<%= i %>')
 				span.add
 					i.typcn.typcn-plus
 
@@ -59,7 +59,13 @@ block scripts
 	script
 		var user= !{JSON.stringify(user)};
 
-		var table = new app.TableView(user.data.servers);
+		
+	script(src='/js/views/ticket.js')
+	script(src='/js/views/web.js')
+	script(src='/js/views/server.js')
+	script(src='/js/views/table.js')
+
+	script(src='/js/app.js')
 
 		
 

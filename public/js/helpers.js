@@ -23,3 +23,17 @@ function plural(num, strings) {
 		return num + ' ' + strings[2];
 	}
 }
+
+
+jQuery.extend({
+	postJSON: function( url, data, callback) {
+		jQuery.ajax ({
+			url: url,
+			type: "POST",
+			data: JSON.stringify(data),
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
+			success: callback
+		});
+	}
+});

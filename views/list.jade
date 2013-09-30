@@ -1,0 +1,22 @@
+extends layout
+
+block title
+	title Testovací stroje
+
+block content
+
+	h1 Testovací stroje
+
+	div.nameinput
+		input(type="text", placeholder="jmeno.prijmeni")
+
+	div.users
+		- for(var i = 0; i < users.length; i++)
+			a(href='/#{users[i].name}') #{users[i].name.split('.').join(' ')}
+
+
+		
+
+		
+
+
